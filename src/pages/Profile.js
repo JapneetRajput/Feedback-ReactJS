@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { profileUser } from "../api/service";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router";
+import Header from "../components/Header";
 
 const Profile = () => {
   let token = localStorage.getItem("token");
@@ -29,7 +30,8 @@ const Profile = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <Header/>
       <div className="pt-32 w-5/6 sm:w-2/3 flex flex-col m-auto items-center">
         
         <h1 className="text-xl text-center">Name : {name}</h1>

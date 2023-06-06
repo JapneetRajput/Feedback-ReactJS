@@ -23,11 +23,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route element={<Privateroute />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/logout" element={<Logout />} />
-        </Route>
+        {/* <Route element={<Privateroute />}> */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/logout" element={<Logout />} />
+        {/* </Route> */}
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

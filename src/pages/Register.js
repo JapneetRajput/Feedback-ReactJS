@@ -64,120 +64,125 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="h-screen bg-bluePrimary">
       {loader && (
         <div className="z-10 absolute flex flex-row items-center justify-center h-full w-full">
           <Loader />
         </div>
       )}
-      <div className="flex mt-12 sm:mt-6">
-        {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
-        <h1 className=" text-[#2E0052] text-3xl ml-1 flex flex-row items-center font-semibold">
-          Memories
-        </h1>
-      </div>
-      <form
-        onSubmit={register}
-        className="px-6 py-6 bg-white flex flex-col items-start border mt-12 sm:mt-6 border-[#D9D9D9] border-3px w-5/6 sm:w-1/3 rounded-xl"
-      >
-        <p className="text-2xl ml-2">Register</p>
-        <TextBox
-          text="text-md text-black"
-          width="w-full"
-          height="h-12"
-          hint="Name"
-          backgroundColor="bg-white"
-          position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
-          span="px-1"
-          input="px-3 sm:px-4"
-          div="mt-8"
-          type="text"
-          setState={setName}
-          value={name}
-        />
-        <TextBox
-          text="text-md text-black"
-          width="w-full"
-          height="h-12"
-          hint="Mobile Number"
-          backgroundColor="bg-white"
-          position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
-          span="px-1"
-          input="px-3 sm:px-4"
-          div="mt-6"
-          type="text"
-          setState={setMobileNumber}
-          value={mobileNumber}
-        />
-        <TextBox
-          text="text-md text-black"
-          width="w-full"
-          height="h-12"
-          hint="Email ID"
-          backgroundColor="bg-white"
-          position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
-          span="px-1"
-          input="px-3 sm:px-4"
-          div="mt-6"
-          type="email"
-          setState={setEmail}
-          value={email}
-        />
-        <TextBox
-          text="text-md text-black"
-          width="w-full"
-          height="h-12"
-          hint="Password"
-          backgroundColor="bg-white"
-          position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
-          span="px-1"
-          input="px-3 sm:px-4"
-          div="mt-6"
-          type="password"
-          setState={setPassword}
-          value={password}
-        />
-        <TextBox
-          text="text-md text-black"
-          width="w-full"
-          height="h-12"
-          hint="Confirm Password"
-          backgroundColor="bg-white"
-          position="left-2 sm:left-3 top-2.5"
-          border="border-gray border-2"
-          span="px-1"
-          input="px-3 sm:px-4"
-          div="mt-6"
-          type="password"
-          setState={setConfirmPassword}
-          value={confirmPassword}
-        />
-        <button
-          type="submit"
-          className="w-full mb-4 text-white hover:text-[#2E0052] hover:border-[#2E0052] hover:border bg-[#2E0052] hover:bg-white rounded-lg h-12 mt-4"
+      <div className="flex flex-col items-center">
+        <div className="flex flex-col mt-16 md:mt-12 px-4 w-5/6 sm:w-1/2 lg:w-1/3">
+          {/* <img src={logo} alt="logo" className="inline w-10 h-10" /> */}
+          <h1 className=" text-white text-3xl flex flex-row items-center font-semibold">
+            Feedback
+          </h1>
+          <p className="text-start text-white mt-2">
+            Add your products and give us your valuable feedback
+          </p>
+        </div>
+        <form
+          onSubmit={register}
+          className="p-6 px-10 bg-white flex flex-col items-start border mt-12 md:mt-8 border-[#D9D9D9] border-3px w-5/6 sm:w-1/2 lg:w-1/3 rounded-xl"
         >
-          Continue
-        </button>
-        <h1 className="text-xs text-left mx-1">
-          By continuing, you agree to Memories privacy notice and conditions of
-          use.
-        </h1>
-      </form>
-      <p className="mt-4 font-semibold">
-        Already have an account?{" "}
-        <span
-          onClick={() => navigate("/")}
-          className="underline cursor-pointer font-normal"
-        >
-          Sign in
-        </span>
-      </p>
-      <div className="fixed bottom-0  bg-[#2E0052] flex flex-col items-center w-full h-10 pt-2">
-        <span className="text-white">Memories | All rights reserved</span>
+          <TextBox
+            textInput="text-md text-bluePrimary"
+            textLabel="text-md text-bluePrimary"
+            width="w-full"
+            height="h-12"
+            hint="Name"
+            backgroundColor="bg-white"
+            position="left-2 sm:left-3 top-2.5"
+            border="border-gray border-2"
+            span="px-1"
+            input="px-3 sm:px-4"
+            div="mt-8"
+            type="text"
+            setState={setName}
+            value={name}
+          />
+          <TextBox
+            textInput="text-md text-bluePrimary"
+            textLabel="text-md text-bluePrimary"
+            width="w-full"
+            height="h-12"
+            hint="Mobile Number"
+            backgroundColor="bg-white"
+            position="left-2 sm:left-3 top-2.5"
+            border="border-gray border-2"
+            span="px-1"
+            input="px-3 sm:px-4"
+            div="mt-6"
+            type="text"
+            setState={setMobileNumber}
+            value={mobileNumber}
+          />
+          <TextBox
+            textInput="text-md text-bluePrimary"
+            textLabel="text-md text-bluePrimary"
+            width="w-full"
+            height="h-12"
+            hint="Email ID"
+            backgroundColor="bg-white"
+            position="left-2 sm:left-3 top-2.5"
+            border="border-gray border-2"
+            span="px-1"
+            input="px-3 sm:px-4"
+            div="mt-6"
+            type="email"
+            setState={setEmail}
+            value={email}
+          />
+          <TextBox
+            textInput="text-md text-bluePrimary"
+            textLabel="text-md text-bluePrimary"
+            width="w-full"
+            height="h-12"
+            hint="Password"
+            backgroundColor="bg-white"
+            position="left-2 sm:left-3 top-2.5"
+            border="border-gray border-2"
+            span="px-1"
+            input="px-3 sm:px-4"
+            div="mt-6"
+            type="password"
+            setState={setPassword}
+            value={password}
+          />
+          <TextBox
+            textInput="text-md text-bluePrimary"
+            textLabel="text-md text-bluePrimary"
+            width="w-full"
+            height="h-12"
+            hint="Confirm Password"
+            backgroundColor="bg-white"
+            position="left-2 sm:left-3 top-2.5"
+            border="border-gray border-2"
+            span="px-1"
+            input="px-3 sm:px-4"
+            div="mt-6"
+            type="password"
+            setState={setConfirmPassword}
+            value={confirmPassword}
+          />
+          <h1 className="text-sm text-greyPrimary text-left mx-1 mt-4">
+            Already have an account?{" "}
+            <span
+              onClick={() => navigate("/")}
+              className="underline cursor-pointer text-bluePrimary font-semibold"
+            >
+              Login
+            </span>
+          </h1>
+          <div className="flex flex-row items-start w-full">
+            <div className="inline w-2/3 h-1"></div>
+            <button
+              type="submit"
+              className="w-1/3 relative right-0 mb-4 text-white hover:text-bluePrimary hover:border-bluePrimary hover:border bg-bluePrimary hover:bg-white rounded-2xl h-10 mt-4"
+            >
+              Signup
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
