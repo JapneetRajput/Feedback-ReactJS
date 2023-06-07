@@ -8,7 +8,7 @@ const Modal = ({ isOpen, toggleModal, children }) => {
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="fixed inset-0 bg-gray-900 opacity-75"></div>{" "}
           {/* Overlay */}
-          <div className="bg-white inset-0 sm:w-2/3 w-5/6 h-2/3 sm:3/4 relative">
+          <div className="bg-white inset-0 sm:w-2/3 w-5/6 h-3/4 sm:h-3/4 relative">
             <div
               className="absolute top-6 right-6 cursor-pointer"
               onClick={toggleModal}
