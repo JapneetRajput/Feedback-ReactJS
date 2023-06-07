@@ -5,11 +5,14 @@ import { profileUser } from "../api/service";
 
 const Header = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
   let token = localStorage.getItem("token");
   const pageInit = () => {
     profileUser(token).then((req, res) => {
       if (req.data.status !== "failed") {
         setIsUserLoggedIn(true);
+        console.log(req.data.userValidation);
+        setUser(req.data.userValidation);
       } else {
       }
     });
@@ -28,15 +31,17 @@ const Header = () => {
           {isUserLoggedIn ? (
             <>
               <span
-                className="sm:mr-4 mr-4 cursor-pointer"
+                className="sm:mr-4 mr-4 cursor-pointer sm:text-lg text-sm"
                 onClick={() => navigate("/logout")}
               >
                 Logout
               </span>
-              <span className="mr-16">Hello!</span>
+              <span className="mr-16 sm:text-lg text-sm">
+                Hello {user.name}!
+              </span>
             </>
           ) : (
-            <>  
+            <>
               <span
                 className="sm:mr-6 mr-2 cursor-pointer"
                 onClick={() => navigate("/")}

@@ -75,7 +75,9 @@ const Home = () => {
   };
 
   const handleLike = async (productID) => {
-    if (productID) {
+    if (!isUserLoggedIn) {
+      alert("Please login to like!");
+    } else if (productID) {
       try {
         const response = await Axios.post(
           `${process.env.REACT_APP_API_BASE_URL}/api/products/${productID}/like`,
@@ -111,7 +113,9 @@ const Home = () => {
     // console.log(activeProduct._id);
     // const comment = event.target.comment.value;
     // setComments([...comments, comment]);
-    if (comment) {
+    if (!isUserLoggedIn) {
+      alert("Please login to comment!");
+    } else if (comment) {
       try {
         const response = await Axios.post(
           `${process.env.REACT_APP_API_BASE_URL}/api/products/${activeProduct._id}/comments`,
@@ -214,7 +218,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="flex md:flex-row flex-col mb-6">
+      <div className="flex md:flex-row flex-col mb-12">
         <div className="flex flex-col sm:w-1/4">
           <div className="sm:ml-12 w-0 h-0 sm:w-4/5 sm:h-28 bg-bluePrimary sm:rounded-lg my-4">
             <p className="text-white text-3xl my-4">Feedback</p>
@@ -293,15 +297,15 @@ const Home = () => {
             products.map((product) => {
               const isOwner = product.owner_id === loggedInUserId;
               return (
-                <div className="flex flex-col mt-4 bg-greyLighter sm:mx-0 mx-4">
-                  <div className="flex flex-row justify-between rounded-md">
+                <div className="flex flex-col mt-4 bg-greyLighter sm:mx-0 mx-4 ">
+                  <div className="flex flex-row justify-between rounded-md pb-4">
                     <div className="flex flex-row">
                       <img
                         src={product.logoUrl}
                         alt={"Logo"}
-                        className="ml-4 mt-4 mb-10 h-16 w-16 inline rounded-full object-cover"
+                        className="sm:ml-4 ml-2 mt-4 mb-10 sm:h-16 sm:w-16 w-12 h-12 inline rounded-full object-cover"
                       />
-                      <div className="flex flex-col ml-6 items-start">
+                      <div className="flex flex-col sm:ml-6 ml-2 items-start">
                         <p className="mt-3 text-xl font-semibold">
                           {product.name}
                         </p>
@@ -311,7 +315,7 @@ const Home = () => {
                             {product.category}
                           </span>
                           <div
-                            className="flex flex-row cursor-pointer"
+                            className={`flex flex-row cursor-pointer `}
                             onClick={() => handleCommentButtonClick(product)}
                           >
                             <img
@@ -328,9 +332,9 @@ const Home = () => {
                     </div>
                     <div className="flex flex-row">
                       {isOwner && (
-                        <div className="flex flex-col justify-end mb-3 mr-4">
+                        <div className="flex flex-col justify-end sm:mb-3 mr-4">
                           <p
-                            className="bg-bluePrimary text-white rounded-lg sm:px-2 px-6 py-1 cursor-pointer"
+                            className="bg-bluePrimary text-white rounded-lg sm:px-2 px-4 py-1 cursor-pointer"
                             onClick={() => handleEditProduct(product)}
                           >
                             Edit
@@ -346,7 +350,10 @@ const Home = () => {
                           <img src={upvote} alt="upvote" className="w-4 mx-1" />
                           <span>{product.likes.length}</span>
                         </span>
-                        <span className="flex flex-row cursor-pointer justify-center mr-4 mt-3">
+                        <span
+                          className="flex flex-row cursor-pointer justify-center mr-4 mt-3"
+                          onClick={() => handleCommentButtonClick(product)}
+                        >
                           <span>{product.comments.length}</span>
                           <img
                             src={commentIcon}
