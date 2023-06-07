@@ -90,7 +90,7 @@ const Login = ({setIsUserLoggedIn}) => {
     <div className="flex flex-col items-start mx-16">
       {loginBool ? (
         <>
-          <p className="mt-8 text-2xl font-bold text-bluePrimary">
+          <p className="sm:mt-8 mt-12 text-2xl font-bold text-bluePrimary">
             Signup to continue
           </p>
           <form

@@ -6,8 +6,9 @@ const Modal = ({ isOpen, toggleModal, children }) => {
     <div>
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="fixed inset-0 bg-gray-900 opacity-75"></div> {/* Overlay */}
-          <div className="bg-white inset-0 w-2/3 h-3/4 relative">
+          <div className="fixed inset-0 bg-gray-900 opacity-75"></div>{" "}
+          {/* Overlay */}
+          <div className="bg-white inset-0 sm:w-2/3 w-5/6 h-2/3 sm:3/4 relative">
             <div
               className="absolute top-6 right-6 cursor-pointer"
               onClick={toggleModal}
@@ -15,8 +16,8 @@ const Modal = ({ isOpen, toggleModal, children }) => {
               <img src={crossIcon} alt="close" className="w-4 h-4" />
             </div>
             <div className="flex flex-row sm:h-full">
-              <div className="sm:w-3/5">{children}</div>
-              <div className="sm:w-2/5 bg-bluePrimary hidden sm:flex sm:flex-col sm:items-start">
+              <div className="sm:w-3/5 w-full">{children}</div>
+              <div className="sm:w-2/5 bg-bluePrimary hidden sm:flex sm:flex-col sm:items-start items-center">
                 <p className="text-white mt-24 ml-12 text-3xl font-bold">
                   Feedback
                 </p>

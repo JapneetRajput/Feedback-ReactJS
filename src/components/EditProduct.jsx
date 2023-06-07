@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextBox from "./TextBox";
 import Axios from "axios";
 
-const AddProduct = ({ toggleModal }) => {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [logoUrl, setLogoUrl] = useState("");
-  const [productUrl, setProductUrl] = useState("");
-  const [description, setDescription] = useState("");
+const EditProduct = ({ toggleModal, product }) => {
+  console.log(product);
+  const [name, setName] = useState(product.name);
+  const [category, setCategory] = useState(product.category);
+  const [logoUrl, setLogoUrl] = useState(product.logoUrl);
+  const [productUrl, setProductUrl] = useState(product.productUrl);
+  const [description, setDescription] = useState(product.description);
 
   const handleProductFormSubmit = (event) => {
     event.preventDefault();
     let token = localStorage.getItem("token");
     if (name && category && logoUrl && productUrl && description) {
-      const product = {
+      const productt = {
+        id: product._id,
         name: name,
         category: category,
         logoUrl: logoUrl,
@@ -30,9 +32,9 @@ const AddProduct = ({ toggleModal }) => {
           authorization: token,
         },
       };
-      Axios.post(
-        process.env.REACT_APP_API_BASE_URL + "/api/products/save",
-        product,
+      Axios.put(
+        process.env.REACT_APP_API_BASE_URL + "/api/products/edit",
+        productt,
         config
       )
         .then((res) => {
@@ -46,10 +48,9 @@ const AddProduct = ({ toggleModal }) => {
   return (
     <form
       onSubmit={handleProductFormSubmit}
-      className="flex flex-col items-start mx-16 mt-16"
+      className="flex flex-col items-start sm:mx-16 mx-12 mt-16"
     >
-      <p className="text-2xl font-bold text-bluePrimary">Add your product</p>
-
+      <p className="text-2xl font-bold text-bluePrimary">Edit product</p>
       <TextBox
         textInput="text-md text-bluePrimary"
         textLabel="text-md text-bluePrimary"
@@ -134,10 +135,10 @@ const AddProduct = ({ toggleModal }) => {
         type="submit"
         className="mt-6 ml-4 bg-bluePrimary text-white px-6 py-2 rounded-2xl"
       >
-        + Add
+        + Edit
       </button>
     </form>
   );
 };
 
-export default AddProduct;
+export default EditProduct;

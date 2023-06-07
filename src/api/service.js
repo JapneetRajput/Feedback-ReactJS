@@ -36,3 +36,12 @@ export const profileUser = async (token) => {
     throw new Error("Server Error");
   }
 };
+
+export const getPostsByCategories = async (category) => {
+  try {
+    const categ = category.toString();
+    return await Axios.get(`${apiUrl}/api/products/filterByCategories/${categ}`);
+  } catch (error) {
+    throw new Error(error);
+  }
+};

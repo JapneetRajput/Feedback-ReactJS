@@ -20,11 +20,11 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex flex-row justify-between bg-bluePrimary w-full h-12">
+      <div className="flex flex-row justify-between bg-bluePrimary w-full h-14">
         <div className="flex flex-col justify-center ml-6 text-white text-2xl font-bold">
           Feedback
         </div>
-        <div className="mt-3 mr-16 flex-flex-row ml-6 text-white text-md font-semibold">
+        <div className="mt-4 mr-16 flex-flex-row ml-6 text-white text-md font-semibold">
           {isUserLoggedIn ? (
             <>
               <span
@@ -38,7 +38,7 @@ const Header = () => {
           ) : (
             <>
               <span
-                className="mr-6 cursor-pointer"
+                className="sm:mr-6 cursor-pointer"
                 onClick={() => navigate("/")}
               >
                 Login
@@ -57,7 +57,7 @@ const Header = () => {
         <img
           src={avatar}
           alt={avatar}
-          className="absolute top-0 right-2 h-10 w-10 inline rounded-full object-cover"
+          className="absolute top-1 right-2 h-10 w-10 inline rounded-full object-cover"
         />
       )}
     </>
