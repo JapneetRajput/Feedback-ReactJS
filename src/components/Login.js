@@ -90,21 +90,21 @@ const Login = ({setIsUserLoggedIn}) => {
     <div className="flex flex-col items-start mx-16">
       {loginBool ? (
         <>
-          <p className="sm:mt-8 mt-12 text-2xl font-bold text-bluePrimary">
+          <p className="sm:mt-8 mt-6 sm:text-2xl text-lg font-bold text-bluePrimary">
             Signup to continue
           </p>
           <form
             onSubmit={register}
-            className=" bg-white flex flex-col items-start mt-6 md:mt-4 w-full"
+            className=" bg-white flex flex-col items-start sm:mt-6 mt-2 md:mt-4 w-full"
           >
             <TextBox
               textInput="text-md text-bluePrimary"
               textLabel="text-md text-bluePrimary"
               width="w-full"
-              height="h-12"
+              height="sm:h-12 h-10"
               hint="Name"
               backgroundColor="bg-white"
-              position="left-2 sm:left-3 top-2.5"
+              position="left-2 sm:left-3 sm:top-2.5 top-1.5"
               border="border-gray border-2"
               span="px-1"
               input="px-3 sm:px-4"
@@ -117,14 +117,14 @@ const Login = ({setIsUserLoggedIn}) => {
               textInput="text-md text-bluePrimary"
               textLabel="text-md text-bluePrimary"
               width="w-full"
-              height="h-12"
+              height="sm:h-12 h-10"
               hint="Mobile Number"
               backgroundColor="bg-white"
-              position="left-2 sm:left-3 top-2.5"
+              position="left-2 sm:left-3 sm:top-2.5 top-1.5"
               border="border-gray border-2"
               span="px-1"
               input="px-3 sm:px-4"
-              div="mt-6"
+              div="mt-4"
               type="text"
               setState={setMobileNumber}
               value={mobileNumber}
@@ -133,14 +133,14 @@ const Login = ({setIsUserLoggedIn}) => {
               textInput="text-md text-bluePrimary"
               textLabel="text-md text-bluePrimary"
               width="w-full"
-              height="h-12"
+              height="sm:h-12 h-10"
               hint="Email ID"
               backgroundColor="bg-white"
-              position="left-2 sm:left-3 top-2.5"
+              position="left-2 sm:left-3 sm:top-2.5 top-1.5"
               border="border-gray border-2"
               span="px-1"
               input="px-3 sm:px-4"
-              div="mt-6"
+              div="mt-4"
               type="email"
               setState={setEmail}
               value={email}
@@ -149,14 +149,14 @@ const Login = ({setIsUserLoggedIn}) => {
               textInput="text-md text-bluePrimary"
               textLabel="text-md text-bluePrimary"
               width="w-full"
-              height="h-12"
+              height="sm:h-12 h-10"
               hint="Password"
               backgroundColor="bg-white"
-              position="left-2 sm:left-3 top-2.5"
+              position="left-2 sm:left-3 sm:top-2.5 top-1.5"
               border="border-gray border-2"
               span="px-1"
               input="px-3 sm:px-4"
-              div="mt-6"
+              div="mt-4"
               type="password"
               setState={setPassword}
               value={password}
@@ -165,14 +165,14 @@ const Login = ({setIsUserLoggedIn}) => {
               textInput="text-md text-bluePrimary"
               textLabel="text-md text-bluePrimary"
               width="w-full"
-              height="h-12"
+              height="sm:h-12 h-10"
               hint="Confirm Password"
               backgroundColor="bg-white"
-              position="left-2 sm:left-3 top-2.5"
+              position="left-2 sm:left-3 sm:top-2.5 top-1.5"
               border="border-gray border-2"
               span="px-1"
               input="px-3 sm:px-4"
-              div="mt-6"
+              div="mt-4"
               type="password"
               setState={setConfirmPassword}
               value={confirmPassword}

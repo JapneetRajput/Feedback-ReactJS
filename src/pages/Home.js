@@ -75,28 +75,29 @@ const Home = () => {
   };
 
   const handleLike = async (productID) => {
-    // console.log(productID);
-    try {
-      const response = await Axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/products/${productID}/like`,
-        null,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      );
+    if (productID) {
+      try {
+        const response = await Axios.post(
+          `${process.env.REACT_APP_API_BASE_URL}/api/products/${productID}/like`,
+          null,
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
 
-      const updatedPosts = products.map((post) => {
-        if (post._id === productID) {
-          return { ...post, likes: response.data.likes };
-        }
-        return post;
-      });
+        const updatedPosts = products.map((post) => {
+          if (post._id === productID) {
+            return { ...post, likes: response.data.likes };
+          }
+          return post;
+        });
 
-      setProducts(updatedPosts);
-    } catch (error) {
-      // console.error(error);
+        setProducts(updatedPosts);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
   const [comments, setComments] = useState([]);
@@ -110,25 +111,29 @@ const Home = () => {
     // console.log(activeProduct._id);
     // const comment = event.target.comment.value;
     // setComments([...comments, comment]);
-    try {
-      const response = await Axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/products/${activeProduct._id}/comments`,
-        { comment },
-        {
-          headers: {
-            authorization: token,
-          },
-        }
-      );
-      setComment("");
-      // console.log(response.data);
+    if (comment) {
+      try {
+        const response = await Axios.post(
+          `${process.env.REACT_APP_API_BASE_URL}/api/products/${activeProduct._id}/comments`,
+          { comment },
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        setComment("");
+        // console.log(response.data);
 
-      // Update the comments state with the new comment
-      setComments([...comments, response.data.comment.content]);
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
-      setComment("");
+        // Update the comments state with the new comment
+        setComments([...comments, response.data.comment.content]);
+        window.location.reload();
+      } catch (error) {
+        console.error(error);
+        setComment("");
+      }
+    } else {
+      alert("All fields are mandatory!");
     }
   };
   const [sortBy, setSortBy] = useState("");

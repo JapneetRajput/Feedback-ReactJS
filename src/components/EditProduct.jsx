@@ -38,29 +38,34 @@ const EditProduct = ({ toggleModal, product }) => {
         config
       )
         .then((res) => {
-          alert("Product added successfully");
+          alert("Product edited successfully");
           toggleModal();
           window.location.reload();
         })
         .catch((err) => console.log(err));
+    } else {
+      alert("All fields are mandatory!");
     }
   };
   return (
     <form
       onSubmit={handleProductFormSubmit}
-      className="flex flex-col items-start sm:mx-16 mx-12 mt-16"
+      className="flex flex-col items-start mx-16 sm:mt-16 mt-4"
     >
-      <p className="text-2xl font-bold text-bluePrimary">Edit product</p>
+      <p className="sm:text-2xl text-xl font-bold text-bluePrimary">
+        Edit product
+      </p>
+
       <TextBox
         textInput="text-md text-bluePrimary"
         textLabel="text-md text-bluePrimary"
         width="w-full"
-        height="h-12"
+        height="sm:h-12 h-12"
         hint="Name of the company"
         backgroundColor="bg-white"
-        position="left-2 md:left-3 top-2.5"
+        position="left-2 md:left-3 sm:top-2.5 top-3"
         border="border-gray border-2"
-        span="px-1"
+        span="px-1 text-sm"
         input="px-3 md:px-4"
         div="sm:mt-6 mt-8"
         setState={setName}
@@ -71,12 +76,12 @@ const EditProduct = ({ toggleModal, product }) => {
         textInput="text-md text-bluePrimary"
         textLabel="text-md text-bluePrimary"
         width="w-full"
-        height="h-12"
+        height="sm:h-12 h-12"
         hint="Category"
         backgroundColor="bg-white"
-        position="left-2 md:left-3 top-2.5"
+        position="left-2 md:left-3 sm:top-2.5 top-3"
         border="border-gray border-2"
-        span="px-1"
+        span="px-1 text-sm"
         input="px-3 md:px-4"
         div="sm:mt-4 mt-6"
         setState={setCategory}
@@ -87,12 +92,12 @@ const EditProduct = ({ toggleModal, product }) => {
         textInput="text-md text-bluePrimary"
         textLabel="text-md text-bluePrimary"
         width="w-full"
-        height="h-12"
+        height="sm:h-12 h-12"
         hint="Add logo url"
         backgroundColor="bg-white"
-        position="left-2 md:left-3 top-2.5"
+        position="left-2 md:left-3 sm:top-2.5 top-3"
         border="border-gray border-2"
-        span="px-1"
+        span="px-1 text-sm"
         input="px-3 md:px-4"
         div="sm:mt-4 mt-6"
         setState={setLogoUrl}
@@ -103,12 +108,12 @@ const EditProduct = ({ toggleModal, product }) => {
         textInput="text-md text-bluePrimary"
         textLabel="text-md text-bluePrimary"
         width="w-full"
-        height="h-12"
+        height="sm:h-12 h-12"
         hint="Link of product"
         backgroundColor="bg-white"
-        position="left-2 md:left-3 top-2.5"
+        position="left-2 md:left-3 sm:top-2.5 top-3"
         border="border-gray border-2"
-        span="px-1"
+        span="px-1 text-sm"
         input="px-3 md:px-4"
         div="sm:mt-4 mt-6"
         setState={setProductUrl}
@@ -119,12 +124,12 @@ const EditProduct = ({ toggleModal, product }) => {
         textInput="text-md text-bluePrimary"
         textLabel="text-md text-bluePrimary"
         width="w-full"
-        height="h-12"
+        height="sm:h-12 h-12"
         hint="Add description"
         backgroundColor="bg-white"
-        position="left-2 md:left-3 top-2.5"
+        position="left-2 md:left-3 sm:top-2.5 top-3"
         border="border-gray border-2"
-        span="px-1"
+        span="px-1 text-sm"
         input="px-3 md:px-4"
         div="sm:mt-4 mt-6"
         setState={setDescription}

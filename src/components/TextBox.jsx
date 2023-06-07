@@ -14,7 +14,7 @@ const TextBox = (props) => {
           className={`${props.input} ${props.height} ${props.width} ${props.textInput} ${props.backgroundColor} ${props.border} placeholder-bg-gradient-to-r from-[#161b22] to-[#0d1117] rounded-lg border-opacity-50 outline-none focus:border-[#2d3642] placeholder-gray-300 placeholder-opacity-0 transition duration-200 `}
         />
         <span
-          className={`${props.span} ${props.textLabel} cursor-text text-[#2d3642] ${props.backgroundColor} absolute left-5 ${props.position} transition duration-200 input-text `}
+          className={`${props.span} ${props.textLabel} cursor-text ${props.textLabel} ${props.backgroundColor} absolute left-5 ${props.position} transition duration-200 input-text `}
         >
           {props.hint}
         </span>
