@@ -1,1 +1,1 @@
-Navbar component in ReactJs using Tailwind-CSS
+Feedback system app built using MERN Stack
